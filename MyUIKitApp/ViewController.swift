@@ -8,17 +8,27 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
-
-    let data = [ "1", "2", "3" ]
+    
+    
+    var data = [Ticket]()
+    
     let tableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.frame = view.frame
         tableView.dataSource = self
-        
-        
         view.addSubview(tableView)
+        
+        guard let url = URL(string: "https://api.claris.su/main/vNext/v1/") else {
+            print("Failed to create URL")
+            return
+        }
+        
+        var api = ClarisNetworking()
+        api.SetURL(url)
+        api.LoginRequest(username: "Тест9291", password: "999999" )
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,7 +38,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableViewCell = UITableViewCell()
         let label = UILabel()
-        label.text = data[indexPath.row]
+        label.text = String(indexPath.row)
         label.frame = tableViewCell.frame
         tableViewCell.addSubview(label)
         return tableViewCell
