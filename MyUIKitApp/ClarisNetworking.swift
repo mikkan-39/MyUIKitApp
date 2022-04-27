@@ -30,8 +30,9 @@ struct ClarisNetworking {
             print("Failed to create the request template. Check if the URL was provided")
             return
         }
-        
-        request.httpBody = "/login/grant_type=password&username=\(username)&password=\(password)".data(using: .utf8)
+        request.url = URL(string: "https://api.claris.su/main/token")
+        request.httpMethod = "POST"
+        request.httpBody = "grant_type=password&username=\(username)&password=\(password)".data(using: .utf8)
         
         let task = urlSession.dataTask(
             with: request,
