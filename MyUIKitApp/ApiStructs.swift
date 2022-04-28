@@ -6,19 +6,13 @@
 //
 
 struct GenericIDField: Codable {
-    let id: Int
-    let name: String
+    let id: String
+    let name: String?
 }
 
 struct Ticket: Codable {
-    let id: Int
-    let status: GenericIDField
+    let number: Int
     let author: GenericIDField
-    let type: GenericIDField
-}
-
-struct TicketListResponse: Codable {
-    let tickets: [Ticket]
 }
 
 struct AccessTokenResponse: Codable {

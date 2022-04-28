@@ -21,7 +21,36 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
         view.addSubview(tableView)
         
-        data = LoginAndGetTickets(username: "Тест9291", password: "999999")
+        let url = URL(string: "https://api.claris.su/main/vNext/v1/")!
+        var api = ClarisNetworking()
+        api.SetURL(url)
+        
+        let group = DispatchGroup()
+        group.enter()
+        DispatchQueue.global().async {
+            api.LoginRequest(username: "Тест9291", password: "999999") { result in
+                switch result {
+                case .success(let data):
+                    api.accessToken = data.access_token
+                case .failure(_):
+                    print("Login Error")
+                }
+                group.leave()
+            }
+        }
+        group.wait()
+        
+        api.getDefaultTickets() { result in
+            switch result{
+            case .success(let tickets):
+                print("Success! Tickets:")
+                print(String(describing: tickets))
+                
+            case .failure(let err):
+                print(String(describing: err))
+            }
+        }
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
