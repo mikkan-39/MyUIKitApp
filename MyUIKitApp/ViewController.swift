@@ -28,7 +28,14 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         var api = ClarisNetworking()
         api.SetURL(url)
-        api.LoginRequest(username: "Тест9291", password: "999999" )
+        api.LoginRequest(username: "Тест9291", password: "999999") { result in
+            switch result {
+            case .success(let data):
+                print(String(describing: data))
+            default:
+                print("Error")
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

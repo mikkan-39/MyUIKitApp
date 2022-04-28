@@ -23,32 +23,34 @@ struct ClarisNetworking {
     // Get the access token
     mutating func LoginRequest (
         username: String,
-        password: String
-//        then handler: @escaping (Result<Data, Error>) -> Void
+        password: String,
+        then handler: @escaping (Result<AccessTokenResponse, Error>) -> Void
     ) {
-        guard var request = defaultRequest else {
-            print("Failed to create the request template. Check if the URL was provided")
-            return
-        }
-        request.url = URL(string: "https://api.claris.su/main/token")
+        var request = URLRequest(url: URL(string: "https://api.claris.su/main/token")!)
         request.httpMethod = "POST"
         request.httpBody = "grant_type=password&username=\(username)&password=\(password)".data(using: .utf8)
         
         let task = urlSession.dataTask(
             with: request,
             completionHandler: { data, response, error in
-                // Validate response and call handler
                 print("Response: \(String(describing: response))")
                 print("Data: \(String(describing: data))")
                 print("Error: \(String(describing: error))")
-//                if let data = data {
-//                    handler(.success(data))
-//                } else {
-//                    handler(.failure(error!))
-//                }
+                
+                guard let data = data else {
+                    handler(.failure(error!))
+                    return
+                }
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let product = try decoder.decode(AccessTokenResponse.self, from: data)
+                    handler(.success(product))
+                } catch {
+                    handler(.failure(error))
+                }
             }
         )
         task.resume()
     }
 }
-
