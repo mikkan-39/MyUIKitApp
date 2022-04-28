@@ -45,6 +45,13 @@ class ViewController: UIViewController, UITableViewDataSource {
             case .success(let tickets):
                 print("Success! Tickets:")
                 print(String(describing: tickets))
+                self.data = tickets
+                group.enter()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    group.leave()
+                }
+                group.wait()
                 
             case .failure(let err):
                 print(String(describing: err))
@@ -60,7 +67,11 @@ class ViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableViewCell = UITableViewCell()
         let label = UILabel()
-        label.text = String(indexPath.row)
+        if let cellLabel = data[indexPath.row].author.name {
+            label.text = cellLabel
+        } else {
+            label.text = "Имя не указано"
+        }
         label.frame = tableViewCell.frame
         tableViewCell.addSubview(label)
         return tableViewCell
