@@ -13,6 +13,8 @@
 		26C6BFF82812B1A500F07CEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C6BFF62812B1A500F07CEB /* Main.storyboard */; };
 		26C6BFFA2812B1A700F07CEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C6BFF92812B1A700F07CEB /* Assets.xcassets */; };
 		26C6BFFD2812B1A700F07CEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C6BFFB2812B1A700F07CEB /* LaunchScreen.storyboard */; };
+		26C6C00C2819D5FE00F07CEB /* ApiStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C6C00B2819D5FE00F07CEB /* ApiStructs.swift */; };
+		26C6C00E2819D70700F07CEB /* ClarisNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C6C00D2819D70700F07CEB /* ClarisNetworking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		26C6BFF92812B1A700F07CEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26C6BFFC2812B1A700F07CEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26C6BFFE2812B1A700F07CEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26C6C00B2819D5FE00F07CEB /* ApiStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiStructs.swift; sourceTree = "<group>"; };
+		26C6C00D2819D70700F07CEB /* ClarisNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarisNetworking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		26C6BFEF2812B1A500F07CEB /* MyUIKitApp */ = {
 			isa = PBXGroup;
 			children = (
+				26C6C00B2819D5FE00F07CEB /* ApiStructs.swift */,
 				26C6BFF02812B1A500F07CEB /* AppDelegate.swift */,
 				26C6BFF22812B1A500F07CEB /* SceneDelegate.swift */,
 				26C6BFF42812B1A500F07CEB /* ViewController.swift */,
@@ -63,6 +68,7 @@
 				26C6BFF92812B1A700F07CEB /* Assets.xcassets */,
 				26C6BFFB2812B1A700F07CEB /* LaunchScreen.storyboard */,
 				26C6BFFE2812B1A700F07CEB /* Info.plist */,
+				26C6C00D2819D70700F07CEB /* ClarisNetworking.swift */,
 			);
 			path = MyUIKitApp;
 			sourceTree = "<group>";
@@ -139,7 +145,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				26C6BFF52812B1A500F07CEB /* ViewController.swift in Sources */,
+				26C6C00E2819D70700F07CEB /* ClarisNetworking.swift in Sources */,
 				26C6BFF12812B1A500F07CEB /* AppDelegate.swift in Sources */,
+				26C6C00C2819D5FE00F07CEB /* ApiStructs.swift in Sources */,
 				26C6BFF32812B1A500F07CEB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
