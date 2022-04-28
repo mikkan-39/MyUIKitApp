@@ -21,21 +21,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
         view.addSubview(tableView)
         
-        guard let url = URL(string: "https://api.claris.su/main/vNext/v1/") else {
-            print("Failed to create URL")
-            return
-        }
-        
-        var api = ClarisNetworking()
-        api.SetURL(url)
-        api.LoginRequest(username: "Тест9291", password: "999999") { result in
-            switch result {
-            case .success(let data):
-                print(String(describing: data))
-            default:
-                print("Error")
-            }
-        }
+        data = LoginAndGetTickets(username: "Тест9291", password: "999999")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

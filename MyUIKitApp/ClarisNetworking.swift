@@ -33,9 +33,9 @@ struct ClarisNetworking {
         let task = urlSession.dataTask(
             with: request,
             completionHandler: { data, response, error in
-                print("Response: \(String(describing: response))")
-                print("Data: \(String(describing: data))")
-                print("Error: \(String(describing: error))")
+//                print("Response: \(String(describing: response))")
+//                print("Data: \(String(describing: data))")
+//                print("Error: \(String(describing: error))")
                 
                 guard let data = data else {
                     handler(.failure(error!))
