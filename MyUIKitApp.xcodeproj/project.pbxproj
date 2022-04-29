@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26192E72281C345C0052D2A3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26192E71281C345C0052D2A3 /* TableViewCell.swift */; };
 		26C6BFF12812B1A500F07CEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C6BFF02812B1A500F07CEB /* AppDelegate.swift */; };
 		26C6BFF32812B1A500F07CEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C6BFF22812B1A500F07CEB /* SceneDelegate.swift */; };
 		26C6BFF52812B1A500F07CEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C6BFF42812B1A500F07CEB /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26192E71281C345C0052D2A3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		26C6BFED2812B1A500F07CEB /* MyUIKitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyUIKitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C6BFF02812B1A500F07CEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26C6BFF22812B1A500F07CEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 		26C6BFEF2812B1A500F07CEB /* MyUIKitApp */ = {
 			isa = PBXGroup;
 			children = (
+				26192E71281C345C0052D2A3 /* TableViewCell.swift */,
 				26C6C00B2819D5FE00F07CEB /* ApiStructs.swift */,
 				26C6BFF02812B1A500F07CEB /* AppDelegate.swift */,
 				26C6BFF22812B1A500F07CEB /* SceneDelegate.swift */,
@@ -147,6 +150,7 @@
 				26C6BFF52812B1A500F07CEB /* ViewController.swift in Sources */,
 				26C6C00E2819D70700F07CEB /* ClarisNetworking.swift in Sources */,
 				26C6BFF12812B1A500F07CEB /* AppDelegate.swift in Sources */,
+				26192E72281C345C0052D2A3 /* TableViewCell.swift in Sources */,
 				26C6C00C2819D5FE00F07CEB /* ApiStructs.swift in Sources */,
 				26C6BFF32812B1A500F07CEB /* SceneDelegate.swift in Sources */,
 			);
