@@ -7,19 +7,20 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var tableView: UITableView!
     
     var data = [Ticket]()
-    
-    let tableView = UITableView()
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        tableView.frame = view.frame
+        let nib = UINib(nibName: "DemoTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "DemoTableViewCell")
         tableView.dataSource = self
-        view.addSubview(tableView)
+        tableView.delegate = self
         
         let url = URL(string: "https://api.claris.su/main/vNext/v1/")!
         var api = ClarisNetworking()
@@ -57,13 +58,14 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     }
     
+    //TableView funcs
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = TableViewCell()
-        cell.assignTicket(ticket: data[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DemoTableViewCell", for: indexPath) as! DemoTableViewCell
+        cell.assignTicket(ticket: data[indexPath.row]) 
         return cell
     }
 
